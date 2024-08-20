@@ -3,9 +3,10 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { BookModule } from './books/book.module';
 import { LoanModule } from './loan/loan.module';
 import { UserModule } from './users/user.module';
+import { environment } from './environments/environment';
 
 @Module({
-  imports: [LoanModule,UserModule,BookModule,MongooseModule.forRoot('mongodb://127.0.0.1:27017/librarydb')],
+  imports: [LoanModule,UserModule,BookModule,MongooseModule.forRoot(environment.mongoDbUrl)],
 
 })
 export class LibraryModule {}
